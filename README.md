@@ -4,7 +4,7 @@
 AF_XDP (Address Family eXpress Data Path) is a Linux socket family that bypasses the kernel network stack. The socket (called an xsk) attaches to one specific RX queue of one specific netdev. A small XDP/BPF program runs at the very start of the RX path and decides: XDP_REDIRECT (push the packet into the xsk's userspace ring) or XDP_PASS (let the kernel continue normal processing).
 
 bessd's CNDP layer attaches one xsk per port to queue 0 with the xsk_def_xdp_prog BPF program. So packets that arrive on queue 0 are redirected into bessd; packets on any other queue (1..47) hit the default XDP_PASS and go to the kernel stack — but the pod netns has no user-space consumer for them, so they're silently dropped.
-
+```
 
   Wire ──► access PF ──► RSS (hash → queue) ──► one of 48 queues
                                                       │
@@ -16,6 +16,9 @@ bessd's CNDP layer attaches one xsk per port to queue 0 with the xsk_def_xdp_pro
                                   │                 kernel has nothing to do with them
                                   ▼                 in the pod netns → DROPPED)
                             bessd (CNDP)
+
+
+```
 ### Why our packets were invisible
 Our GTP-U has a single, narrow 5-tuple:
 
