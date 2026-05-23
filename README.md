@@ -67,9 +67,9 @@ n-tuple + -X equal 1 force every packet of interest to q0 → bessd finally sees
 
 ### resources 
 
-[](https://www.kernel.org/doc/html/latest/networking/scaling.html)
+[https://www.kernel.org/doc/html/latest/networking/scaling.html](https://www.kernel.org/doc/html/latest/networking/scaling.html)
 
-[](https://www.kernel.org/doc/html/latest/networking/af_xdp.html)
+[https://www.kernel.org/doc/html/latest/networking/af_xdp.html](https://www.kernel.org/doc/html/latest/networking/af_xdp.html)
 
-[](https://github.com/xdp-project/xdp-tutorial)
+[https://github.com/xdp-project/xdp-tutorial](https://github.com/xdp-project/xdp-tutorial)
 
