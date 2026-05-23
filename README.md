@@ -64,3 +64,12 @@ AF_XDP/CNDP attaches bessd to q0 only.
 Result: every OCUDU GTP-U packet lands on a queue bessd doesn't watch → kernel can't do anything with it in the pod netns → dropped.
 From outside, the symptom looks like "PDR doesn't match" because pdrLookupFail cumulative is non-zero (from packets that did hit q0 in earlier moments when the topology was slightly different) — but in reality almost nothing was reaching pdrLookup at all.
 n-tuple + -X equal 1 force every packet of interest to q0 → bessd finally sees them.
+
+### resources 
+
+[](https://www.kernel.org/doc/html/latest/networking/scaling.html)
+
+[](https://www.kernel.org/doc/html/latest/networking/af_xdp.html)
+
+[](https://github.com/xdp-project/xdp-tutorial)
+
